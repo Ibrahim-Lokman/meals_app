@@ -1,74 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/categories_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Meals App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
+        accentColor: Colors.blue,
+        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        fontFamily: 'Raleway',
+        textTheme: ThemeData.light().textTheme.copyWith(
+          bodyText1 : TextStyle(
+            color : Color.fromRGBO(20, 51, 51, 1)
+          ),
+          bodyText2 : TextStyle(
+            color : Color.fromRGBO(20, 51, 51, 1)
+          ),
+          subtitle1 : TextStyle(
+            fontSize: 24,
+            fontFamily: 'RobotoCondensed',
+
+          )),
       ),
-      home: const MyHomePage(title: 'Meals App'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
- 
-    return Scaffold(
-      appBar: AppBar(
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      home: CategoriesScreen(),
     );
   }
 }
