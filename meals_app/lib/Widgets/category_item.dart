@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:meals_app/category_meals_screen.dart';
+import 'package:meals_app/Screens/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   final String id;
