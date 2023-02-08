@@ -5,20 +5,41 @@ import 'package:meals_app/Screens/categories_screen.dart';
 import 'package:meals_app/Screens/favorites_screen.dart';
 import 'package:meals_app/Widgets/main_drawer.dart';
 
-class TabScreen extends StatefulWidget {
+import '../Models/meal.dart';
 
+class TabScreen extends StatefulWidget {
+  
+  final List<Meal> favoriteMeals;
+
+  TabScreen(this.favoriteMeals);
+  
   @override
   _TabScreenState createState() => _TabScreenState();
 }
 
 class _TabScreenState extends State<TabScreen> {
-  final List<Map<String, dynamic>> _pages = [
-    //as Widget
-   {'page': CategoriesScreen() as Widget, 'title': 'Categories',},
-   {'page': FavoritesScreen() as Widget, 'title': 'My Favorites',},
+
+
+  List<Map<String, Object>> _pages = [];
+  int _selectedPageIndex = 0;
+
+
+  @override
+  void initState(){
+   _pages = [
+   {
+    'page': CategoriesScreen() as Widget, 
+    'title': 'Categories',
+    },
+   {
+    'page': FavoritesScreen(widget.favoriteMeals) as Widget, 
+    'title': 'My Favorites',
+    },
   ];
 
-  int _selectedPageIndex = 0;
+  super.initState();
+
+  }
 
   void _selectPage(int index){
       setState(() {
@@ -30,10 +51,10 @@ class _TabScreenState extends State<TabScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(_pages[_selectedPageIndex]['title']),
+          title: Text(_pages[_selectedPageIndex]['title'] as String),
          ),
           drawer: MainDrawer(),
-          body: _pages[_selectedPageIndex]['page'],
+          body: _pages[_selectedPageIndex]['page'] as Widget,
           bottomNavigationBar: BottomNavigationBar(
             onTap : _selectPage,
             backgroundColor:Theme.of(context).primaryColor,

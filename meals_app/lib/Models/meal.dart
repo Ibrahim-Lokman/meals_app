@@ -23,6 +23,7 @@ class Meal {
   final bool isVegan;
   final bool  isVegetarian;
 
+
   final List<String> categories;
   final List<String> ingredients;
   final List<String> steps;
