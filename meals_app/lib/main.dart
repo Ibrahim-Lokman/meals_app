@@ -18,20 +18,28 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
+
+  //Things to control in filter option
+
   Map<String, bool> _filters = {
     'gluten' : false,
     'lactose' : false,
     'vegetarian' : false,
   };
 
+  //Imported fron dummy_dart.dart file
   List<Meal> _availableMeals = DUMMY_MEALS;
+
+  // This list will be filled up when we will select any meal as favorite 
   List<Meal> _favoriteMeals = [];
   
+
+
   void _setFilters(Map<String, bool> filterData){
     setState(() {
       _filters = filterData;
       _availableMeals = DUMMY_MEALS.where((meal){
-        if(_filters['gluten']! && !meal.isGlutenFree){
+        if( _filters['gluten']! && !meal.isGlutenFree){
           return false;
         }
          if(_filters['lactose']! && !meal.isLactoseFree){
@@ -80,7 +88,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.pink,
         accentColor: Colors.blue,
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        canvasColor: Color.fromRGBO(255, 255, 255, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
           bodyText1 : TextStyle(
@@ -98,7 +106,10 @@ class _MyAppState extends State<MyApp> {
      // home: CategoriesScreen(),
       initialRoute: '/',
       routes: {
+
+        //initially there is no favorite meals
         '/' :(context) => TabScreen(_favoriteMeals),
+        
         CategoryMealsScreen.routeName : (context) => CategoryMealsScreen(_availableMeals),
         MealDetailsScreen.routeName : (context) => MealDetailsScreen(_toggleFavorite, _isMealFavorite),
         FiltersScreen.routeName: (context) => FiltersScreen(_filters, _setFilters),

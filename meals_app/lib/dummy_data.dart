@@ -7,7 +7,7 @@ var DUMMY_CATEGORIES =  [
   Category(
     id: 'c1',
     title: 'Italian',
-    color: Color.fromARGB(255, 48, 255, 241),
+    color: Color.fromARGB(255, 91, 155, 195),
   ),
   Category(
     id: 'c2',
@@ -17,12 +17,12 @@ var DUMMY_CATEGORIES =  [
   Category(
     id: 'c3',
     title: 'Hamburgers',
-    color: Colors.grey,
+    color: Color.fromARGB(255, 195, 193, 193),
   ),
   Category(
     id: 'c4',
     title: 'German',
-    color: Colors.grey,
+    color: Color.fromARGB(255, 231, 227, 158),
   ),
   Category(
     id: 'c5',
@@ -32,17 +32,17 @@ var DUMMY_CATEGORIES =  [
   Category(
     id: 'c6',
     title: 'Exotic',
-    color: Colors.lightBlue,
+    color: Color.fromARGB(255, 91, 155, 195),
   ),
   Category(
     id: 'c7',
     title: 'Breakfast',
-    color: Color.fromARGB(255, 48, 255, 241),
+    color: Color.fromARGB(255, 195, 193, 193),
   ),
   Category(
     id: 'c8',
     title: 'Asian',
-    color: Color.fromARGB(255, 48, 255, 241),
+    color:Color.fromARGB(255, 195, 193, 193),
   ),
   Category(
     id: 'c9',
@@ -52,7 +52,7 @@ var DUMMY_CATEGORIES =  [
   Category(
     id: 'c10',
     title: 'Summer',
-    color: Colors.grey,
+    color: Color.fromARGB(255, 231, 227, 158),
   ),
 ];
 

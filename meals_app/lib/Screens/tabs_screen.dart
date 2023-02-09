@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:meals_app/Screens/categories_screen.dart';
 import 'package:meals_app/Screens/favorites_screen.dart';
 import 'package:meals_app/Widgets/main_drawer.dart';
@@ -9,8 +7,10 @@ import '../Models/meal.dart';
 
 class TabScreen extends StatefulWidget {
   
+
   final List<Meal> favoriteMeals;
 
+  //initially blank favoriteMeals list is passed by main.dart   
   TabScreen(this.favoriteMeals);
   
   @override
@@ -18,7 +18,6 @@ class TabScreen extends StatefulWidget {
 }
 
 class _TabScreenState extends State<TabScreen> {
-
 
   List<Map<String, Object>> _pages = [];
   int _selectedPageIndex = 0;
@@ -28,11 +27,11 @@ class _TabScreenState extends State<TabScreen> {
   void initState(){
    _pages = [
    {
-    'page': CategoriesScreen() as Widget, 
+    'page': CategoriesScreen(), 
     'title': 'Categories',
     },
    {
-    'page': FavoritesScreen(widget.favoriteMeals) as Widget, 
+    'page': FavoritesScreen(widget.favoriteMeals), 
     'title': 'My Favorites',
     },
   ];
@@ -49,14 +48,28 @@ class _TabScreenState extends State<TabScreen> {
 
   @override
   Widget build(BuildContext context) {
+  //  print(_selectedPageIndex);
     return Scaffold(
         appBar: AppBar(
-          title: Text(_pages[_selectedPageIndex]['title'] as String),
+        
+          iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0), size: 40),
+          backgroundColor: Color.fromARGB(235, 255, 255, 255),
+          title: Text(
+            _pages[_selectedPageIndex]['title'] as String,
+            style: TextStyle(
+              fontSize: 25,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
+            ),
          ),
-          drawer: MainDrawer(),
+
+          drawer: MainDrawer(
+          ),
+
           body: _pages[_selectedPageIndex]['page'] as Widget,
           bottomNavigationBar: BottomNavigationBar(
-            onTap : _selectPage,
+
+            onTap : _selectPage, //index of the selected page is passed
             backgroundColor:Theme.of(context).primaryColor,
             unselectedItemColor: Colors.white,
             selectedItemColor: Color.fromARGB(255, 138, 255, 142),

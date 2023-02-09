@@ -10,6 +10,7 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(
               icon,
               size: 26,
+              color: Color.fromARGB(255, 255, 0, 0),
             ),
             title: Text(
               title,

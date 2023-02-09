@@ -7,22 +7,31 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-        padding: EdgeInsets.all(25),
-        children: DUMMY_CATEGORIES.map(
-          (item) => 
-            CategoryItem(
-                item.id,
-                item.title, 
-                item.color,
-                ),
-          ).toList(),
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 300,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 50,  
-        ),
-        );
+    return Column(
+      
+      children: [
+        GridView(
+            padding: EdgeInsets.all(25),
+
+            //We will not use every information of DUMMY CATEGORIES list in this screen,
+            // so we need to use map method for creating custom widget
+            children: DUMMY_CATEGORIES.map( //returns an iterable, not a list.
+              (item) => 
+                CategoryItem(
+                    item.id,
+                    item.title, 
+                    item.color,
+                    ),
+              ).toList(),
+            
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 500,
+              childAspectRatio: 12 / 4,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 50,  
+            ),
+            ),
+      ],
+    );
   }
 }
