@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:meals_app/Screens/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -29,14 +26,72 @@ class CategoryItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         padding: const EdgeInsets.all(15),
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.subtitle1,
-          ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Icon(Icons.food_bank_rounded,
+                    size: 40, 
+                    color: Colors.red
+
+                ),
+                Text(
+                   title,
+                   style: Theme.of(context).textTheme.subtitle1,
+              ),
+              ],
+            ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                          vertical: 2,
+                          horizontal: 5,
+                        ),
+                    child: Text("Subtitle 1"),
+                    
+                   decoration: new BoxDecoration(
+                      borderRadius: new BorderRadius.circular(16.0),
+                      color: Colors.green,
+                   ),
+                    ),
+                   Container(
+                    padding: EdgeInsets.symmetric(
+                          vertical: 2,
+                          horizontal: 5,
+                        ),
+                    child: Text("Subtitle 2"),
+                    
+                   decoration: new BoxDecoration(
+                      borderRadius: new BorderRadius.circular(16.0),
+                      color: Color.fromARGB(255, 219, 224, 155),
+                      
+                   ),
+                    ),
+                    Container(),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                          vertical: 2,
+                          horizontal: 5,
+                        ),
+                    child: Text("Subtitle 3"),
+                    
+                   decoration: new BoxDecoration(
+                      borderRadius: new BorderRadius.circular(16.0),
+                      color: Color.fromARGB(255, 219, 224, 155),
+                      
+                   ),
+                  ),
+                  
+                ],
+              ),
+          ],
+        ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              color.withOpacity(0.7),
+              color.withOpacity(0.25),
               color,
             ],
             begin: Alignment.topLeft,
